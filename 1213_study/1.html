@@ -35,17 +35,7 @@
                 console.log(action.type, action, state, newState);
                 return newState;
         }
-        // function reducer(state, action){
-        //     if(state === undefined){
-        //         return {color:'yellow'}
-        //     }
-        //     var newState;
-        //     if(action.type === 'CHANGE_COLOR'){
-        //         newState = Object.assign({}, state, {color:action.color});
-        //     }
-        //     console.log(action.type, action, state, newState);
-        //     return newState;
-        // }
+        
 
         let store = Redux.createStore(reducer); //store 생성
         

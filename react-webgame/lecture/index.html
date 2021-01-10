@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const e = React.createElement;
+
+            class LikeButton extends React.Component{
+                constructor(props){//컴포넌트 실행시에 가장 먼저 동작한다.
+                    super(props);
+                    this.state = { //바뀔 여지가 있는 부분이 상태 ( state )이다.
+                        liked : false,
+                    };
+                }
+                
+                render(){
+                    return <button type="submit" onClick={() => {this.setState({liked:true})}}>
+                        {this.state.liked === true ? 'Liked' : 'Like'}
+                        </button>;//JSX(JS+XML)
+                    // e('button',{onClick:() => {this.setState({liked:true})},type:'submit'},
+                    // this.state.liked === true ? 'Liked' : 'Like',
+                    //     );//<button>Like</button> 를 만들겠다.
+                }
+            }
+        </script>
+        <script type="text/babel">
+            ReactDOM.render(<div><LikeButton /><LikeButton /></div>, document.querySelector('#root'));//ReactDOM이 화면에 실제로 구현해준다.
+            //ReactDOM.render(e(LikeButton), document.querySelector('#root'));//ReactDOM이 화면에 실제로 구현해준다.
+        </script>
+    </body>
+</html>
